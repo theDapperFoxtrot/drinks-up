@@ -8,9 +8,9 @@ document.querySelector('button').addEventListener('click', getDrink)
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
     .then(res => res.json())
     .then(data => {
-      console.log(data.drinks)
       document.querySelector("#drinkList").innerHTML = ""
       data.drinks.forEach(function(singleDrink) {
+      const hr = document.createElement('hr')
       const h2 = document.createElement('h2')
       h2.innerText = singleDrink.strDrink
 
@@ -23,6 +23,7 @@ document.querySelector('button').addEventListener('click', getDrink)
         const div = document.createElement('div')
         div.classList.add('individualDrink')
 
+        div.appendChild(hr)
         div.appendChild(h2)
         div.appendChild(img)
         div.appendChild(h3)
