@@ -1,6 +1,12 @@
 // TODO : iterate through and append ingredients; if null, ignore
 
 document.querySelector('button').addEventListener('click', getDrink)
+document.querySelector('input').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    getDrink()
+  }
+  })
+
 
     function getDrink(){
       const drink = document.querySelector('input').value
